@@ -1,4 +1,3 @@
-# weeding-abdul-syahrillah
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -617,6 +616,11 @@ console.log(err);
 
 });
 
+window.addEventListener("beforeunload", () => {
+music.pause();
+music.currentTime = 0;
+});
+  
 </script>
 
 </body>
