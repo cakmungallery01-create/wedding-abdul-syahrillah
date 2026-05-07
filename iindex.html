@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Abdul & Syahrillah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,14 +18,12 @@ box-sizing:border-box;
 -webkit-tap-highlight-color:transparent;
 }
 
-body{
-font-family:'SF Pro Display',sans-serif;
-background:#111;
-height:100vh;
+html,body{
+width:100%;
+height:100%;
 overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
+font-family:'Poppins',sans-serif;
+background:#000;
 }
 
 /* OPENING */
@@ -32,20 +31,28 @@ align-items:center;
 #opening{
 position:fixed;
 inset:0;
+z-index:999999;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+color:white;
+
 background:
 linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
 url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:999999;
-color:white;
-text-align:center;
-padding:30px;
+
 transition:1s;
+}
+
+#opening.hide{
+opacity:0;
+pointer-events:none;
 }
 
 #opening h1{
@@ -55,8 +62,8 @@ margin-bottom:10px;
 }
 
 #opening p{
+font-size:15px;
 opacity:.9;
-font-size:16px;
 }
 
 #openBtn{
@@ -66,10 +73,10 @@ border:none;
 border-radius:999px;
 background:white;
 color:black;
-font-weight:600;
 font-size:15px;
+font-weight:600;
 cursor:pointer;
-transition:.25s;
+transition:.2s;
 }
 
 #openBtn:active{
@@ -79,19 +86,19 @@ transform:scale(.95);
 /* PHONE */
 
 .phone{
+position:relative;
 width:100%;
 max-width:430px;
-height:100vh;
+height:100dvh;
+margin:auto;
 background:#000;
-position:relative;
 overflow:hidden;
 display:none;
-border-radius:42px;
-border:10px solid #111;
-box-shadow:0 0 50px rgba(0,0,0,.7);
+border-radius:40px;
+box-shadow:0 0 40px rgba(0,0,0,.5);
 }
 
-/* dynamic island */
+/* DYNAMIC ISLAND */
 
 .phone::before{
 content:'';
@@ -101,38 +108,41 @@ left:50%;
 transform:translateX(-50%);
 width:126px;
 height:34px;
-background:#000;
 border-radius:40px;
-z-index:9999;
+background:#000;
+z-index:999;
 }
 
 /* HEADER */
 
 .header{
-height:92px;
-padding:14px 16px 10px;
-background:rgba(20,20,20,.85);
-backdrop-filter:blur(25px);
-border-bottom:1px solid rgba(255,255,255,.05);
-color:white;
 position:relative;
-z-index:10;
+z-index:5;
+
+height:95px;
+padding:14px 16px 10px;
+
+background:rgba(20,20,20,.88);
+backdrop-filter:blur(25px);
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+color:white;
 }
 
 .topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-font-size:14px;
+font-size:13px;
 font-weight:600;
-padding:0 6px;
+padding:0 4px;
 margin-bottom:14px;
 }
 
 .icons{
 font-size:12px;
 opacity:.9;
-letter-spacing:1px;
 }
 
 .header-content{
@@ -145,9 +155,11 @@ width:42px;
 height:42px;
 border-radius:50%;
 background:#2c2c2e;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 font-size:20px;
 margin-right:12px;
 }
@@ -160,15 +172,17 @@ font-weight:600;
 .status{
 font-size:12px;
 color:#aaa;
-margin-top:1px;
 }
 
-/* CHAT */
+/* CHAT AREA */
 
 .chat-area{
-height:calc(100vh - 92px);
+height:calc(100dvh - 95px);
 overflow-y:auto;
-padding:16px 12px 140px;
+
+padding:18px 12px 120px;
+
+scroll-behavior:smooth;
 
 background:
 linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
@@ -176,67 +190,84 @@ url('https://images.unsplash.com/photo-1516589091380-5d8e87df6999?q=80&w=1200&au
 
 background-size:cover;
 background-position:center;
-
-scroll-behavior:smooth;
 }
 
 .chat-area::-webkit-scrollbar{
 display:none;
 }
 
+/* MESSAGE */
+
 .message{
+display:none;
 max-width:78%;
+
 padding:10px 14px 6px;
+
 margin-bottom:8px;
+
 font-size:15px;
 line-height:1.45;
-display:none;
+
 animation:show .35s ease;
-position:relative;
-word-wrap:break-word;
 }
 
 .sent{
 margin-left:auto;
+
 background:#0A84FF;
 color:white;
+
 border-radius:22px 22px 6px 22px;
+
 box-shadow:0 3px 12px rgba(10,132,255,.25);
 }
 
 .received{
 background:#2c2c2e;
 color:white;
+
 border-radius:22px 22px 22px 6px;
 }
 
 .message-time{
 font-size:10px;
 opacity:.72;
-text-align:right;
 margin-top:4px;
+text-align:right;
 }
 
-/* typing */
+/* TYPING */
 
 .typing{
 display:none;
+
 background:#2c2c2e;
+
 width:74px;
+
 padding:10px 14px;
+
 border-radius:20px;
+
 margin-bottom:10px;
+
 animation:show .3s ease;
 }
 
 .dot{
 width:7px;
 height:7px;
+
 background:#aaa;
+
 border-radius:50%;
+
 display:inline-block;
-animation:blink 1.2s infinite;
+
 margin-right:3px;
+
+animation:blink 1.2s infinite;
 }
 
 .dot:nth-child(2){
@@ -248,56 +279,86 @@ animation-delay:.4s;
 }
 
 @keyframes blink{
-0%{opacity:.25;transform:translateY(0)}
-50%{opacity:1;transform:translateY(-2px)}
-100%{opacity:.25;transform:translateY(0)}
+
+0%{
+opacity:.25;
+transform:translateY(0);
+}
+
+50%{
+opacity:1;
+transform:translateY(-2px);
+}
+
+100%{
+opacity:.25;
+transform:translateY(0);
+}
+
 }
 
 @keyframes show{
+
 from{
 opacity:0;
 transform:translateY(10px);
 }
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
 /* INVITATION */
 
 .invitation{
 display:none;
+
 background:rgba(255,255,255,.97);
+
 backdrop-filter:blur(30px);
+
 padding:32px 28px;
+
 border-radius:34px;
+
 text-align:center;
-margin-top:24px;
+
+margin-top:26px;
+
 animation:show .8s ease;
+
 box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .invitation h1{
-font-size:34px;
-color:#111;
+font-size:32px;
 margin-bottom:12px;
+color:#111;
 }
 
 .invitation p{
-color:#333;
-line-height:1.8;
 font-size:15px;
+line-height:1.8;
+color:#333;
 }
 
 .button{
 display:inline-block;
-margin-top:22px;
+
+margin-top:20px;
+
 padding:14px 24px;
+
 border-radius:999px;
+
 background:#111;
 color:white;
+
 text-decoration:none;
+
 font-size:14px;
 font-weight:600;
 }
@@ -331,6 +392,8 @@ Buka Undangan
 
 <div class="phone" id="phone">
 
+<!-- HEADER -->
+
 <div class="header">
 
 <div class="topbar">
@@ -351,9 +414,9 @@ Buka Undangan
 
 </div>
 
-<div class="chat-area" id="chatArea">
+<!-- CHAT -->
 
-<!-- CHAT FLOW -->
+<div class="chat-area" id="chatArea">
 
 <div class="message sent">
 kamu belum tidur?
@@ -487,7 +550,7 @@ Buka Maps
 <source src="https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3" type="audio/mpeg">
 </audio>
 
-<audio id="music" preload="auto" loop playsinline>
+<audio id="music" preload="auto" loop playsinline webkit-playsinline>
 <source src="https://files.catbox.moe/0wfhli.mp3" type="audio/mpeg">
 </audio>
 
@@ -497,34 +560,27 @@ const openBtn = document.getElementById('openBtn');
 const opening = document.getElementById('opening');
 const phone = document.getElementById('phone');
 
-const chatArea = document.getElementById('chatArea');
 const messages = document.querySelectorAll('.message');
 const typings = document.querySelectorAll('.typing');
 
 const invite = document.getElementById('invite');
 
+const chatArea = document.getElementById('chatArea');
+
 const chatSound = document.getElementById('chatSound');
 const music = document.getElementById('music');
 
-openBtn.addEventListener('click', () => {
+openBtn.addEventListener('click', ()=>{
 
-phone.style.display = 'block';
+phone.style.display='block';
 
-setTimeout(()=>{
-opening.style.opacity='0';
-},100);
-
-setTimeout(()=>{
-opening.style.display='none';
-},800);
-
-/* CHAT FLOW */
+opening.classList.add('hide');
 
 let delay = 1000;
 
-messages.forEach((msg,index)=>{
+/* MESSAGE FLOW */
 
-/* TYPING */
+messages.forEach((msg,index)=>{
 
 if(index > 0){
 
@@ -552,13 +608,9 @@ typings[index-1].style.display='none';
 
 }
 
-/* MESSAGE */
-
 setTimeout(()=>{
 
 msg.style.display='block';
-
-/* SOUND CHAT */
 
 chatSound.currentTime = 0;
 
@@ -580,7 +632,7 @@ invite.style.display='block';
 
 chatArea.scrollTop = chatArea.scrollHeight;
 
-/* MUSIC START AFTER INVITATION */
+/* MUSIC */
 
 music.volume = 0;
 
@@ -588,21 +640,21 @@ try{
 
 await music.play();
 
-let vol = 0;
+let volume = 0;
 
-const fadeMusic = setInterval(()=>{
+const fade = setInterval(()=>{
 
-vol += 0.02;
+volume += 0.02;
 
-if(vol >= 0.45){
+if(volume >= 0.45){
 
-vol = 0.45;
+volume = 0.45;
 
-clearInterval(fadeMusic);
+clearInterval(fade);
 
 }
 
-music.volume = vol;
+music.volume = volume;
 
 },120);
 
@@ -612,7 +664,7 @@ console.log(err);
 
 }
 
-},delay + 1200);
+},delay + 1000);
 
 });
 
