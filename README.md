@@ -1,6 +1,6 @@
 <title>Abdul & Syahrillah</title>
 
-<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -8,14 +8,13 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
 }
 
 body{
-font-family:'SF Pro Display',sans-serif;
-background:#111;
-height:100vh;
+font-family:'Poppins',sans-serif;
+background:#000;
 overflow:hidden;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -25,49 +24,45 @@ align-items:center;
 
 #opening{
 position:fixed;
-inset:0;
+width:100%;
+height:100%;
 background:
 linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
 url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-z-index:999999;
+z-index:99999;
 color:white;
 text-align:center;
 padding:30px;
-transition:1s;
 }
 
 #opening h1{
 font-size:42px;
-font-weight:700;
 margin-bottom:10px;
 }
 
 #opening p{
-opacity:.9;
 font-size:16px;
+opacity:.9;
 }
 
 #openBtn{
-margin-top:28px;
-padding:15px 34px;
+margin-top:25px;
+padding:14px 30px;
 border:none;
 border-radius:999px;
 background:white;
 color:black;
+font-family:'Poppins',sans-serif;
 font-weight:600;
 font-size:15px;
 cursor:pointer;
-transition:.25s;
-}
-
-#openBtn:active{
-transform:scale(.95);
 }
 
 /* PHONE */
@@ -80,53 +75,52 @@ background:#000;
 position:relative;
 overflow:hidden;
 display:none;
-border-radius:42px;
-border:10px solid #111;
-box-shadow:0 0 50px rgba(0,0,0,.7);
+border-radius:40px;
+box-shadow:0 0 40px rgba(0,0,0,.5);
+border:8px solid #111;
 }
-
-/* dynamic island */
 
 .phone::before{
 content:'';
 position:absolute;
-top:12px;
+top:10px;
 left:50%;
 transform:translateX(-50%);
-width:126px;
-height:34px;
+width:140px;
+height:28px;
 background:#000;
-border-radius:40px;
+border-radius:20px;
 z-index:9999;
 }
 
 /* HEADER */
 
 .header{
-height:92px;
-padding:14px 16px 10px;
-background:rgba(20,20,20,.85);
-backdrop-filter:blur(25px);
-border-bottom:1px solid rgba(255,255,255,.05);
+height:95px;
+background:rgba(28,28,30,.92);
+backdrop-filter:blur(20px);
+padding:10px 16px;
 color:white;
-position:relative;
-z-index:10;
+display:flex;
+flex-direction:column;
+justify-content:center;
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
+margin-bottom:10px;
 font-size:14px;
 font-weight:600;
-padding:0 6px;
-margin-bottom:14px;
+padding:0 2px;
 }
 
-.icons{
+.icons-ios{
 font-size:12px;
+letter-spacing:2px;
 opacity:.9;
-letter-spacing:1px;
 }
 
 .header-content{
@@ -135,14 +129,14 @@ align-items:center;
 }
 
 .profile{
-width:42px;
-height:42px;
+width:45px;
+height:45px;
 border-radius:50%;
 background:#2c2c2e;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:20px;
+font-size:22px;
 margin-right:12px;
 }
 
@@ -154,48 +148,48 @@ font-weight:600;
 .status{
 font-size:12px;
 color:#aaa;
-margin-top:1px;
 }
 
 /* CHAT */
 
 .chat-area{
-height:calc(100vh - 92px);
+height:calc(100vh - 95px);
 overflow-y:auto;
-padding:16px 12px 140px;
+padding:20px 14px 120px;
 
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
 url('https://images.unsplash.com/photo-1516589091380-5d8e87df6999?q=80&w=1200&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
-
-scroll-behavior:smooth;
-}
-
-.chat-area::-webkit-scrollbar{
-display:none;
 }
 
 .message{
 max-width:78%;
-padding:10px 14px 6px;
-margin-bottom:8px;
+padding:12px 16px;
+margin-bottom:12px;
 font-size:15px;
-line-height:1.45;
+line-height:1.5;
 display:none;
 animation:show .35s ease;
 position:relative;
-word-wrap:break-word;
+backdrop-filter:blur(10px);
+}
+
+.message-time{
+font-size:10px;
+opacity:.7;
+margin-top:4px;
+text-align:right;
 }
 
 .sent{
-margin-left:auto;
-background:#0A84FF;
+background:#0A7CFF;
 color:white;
+margin-left:auto;
 border-radius:22px 22px 6px 22px;
-box-shadow:0 3px 12px rgba(10,132,255,.25);
+box-shadow:0 2px 10px rgba(10,124,255,.25);
 }
 
 .received{
@@ -204,33 +198,22 @@ color:white;
 border-radius:22px 22px 22px 6px;
 }
 
-.message-time{
-font-size:10px;
-opacity:.72;
-text-align:right;
-margin-top:4px;
-}
-
-/* typing */
-
 .typing{
 display:none;
 background:#2c2c2e;
-width:74px;
-padding:10px 14px;
+padding:10px 15px;
 border-radius:20px;
-margin-bottom:10px;
-animation:show .3s ease;
+width:70px;
+margin-bottom:12px;
 }
 
 .dot{
-width:7px;
-height:7px;
+width:8px;
+height:8px;
 background:#aaa;
 border-radius:50%;
 display:inline-block;
 animation:blink 1.2s infinite;
-margin-right:3px;
 }
 
 .dot:nth-child(2){
@@ -242,9 +225,9 @@ animation-delay:.4s;
 }
 
 @keyframes blink{
-0%{opacity:.25;transform:translateY(0)}
-50%{opacity:1;transform:translateY(-2px)}
-100%{opacity:.25;transform:translateY(0)}
+0%{opacity:.2}
+20%{opacity:1}
+100%{opacity:.2}
 }
 
 @keyframes show{
@@ -262,45 +245,41 @@ transform:translateY(0);
 
 .invitation{
 display:none;
-background:rgba(255,255,255,.97);
-backdrop-filter:blur(30px);
-padding:32px 28px;
-border-radius:34px;
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:30px;
 text-align:center;
-margin-top:24px;
-animation:show .8s ease;
-box-shadow:0 15px 40px rgba(0,0,0,.35);
+margin-top:30px;
+animation:show 1s ease;
 }
 
 .invitation h1{
-font-size:34px;
+font-size:32px;
+margin-bottom:10px;
 color:#111;
-margin-bottom:12px;
 }
 
 .invitation p{
 color:#333;
 line-height:1.8;
-font-size:15px;
 }
 
 .button{
 display:inline-block;
-margin-top:22px;
-padding:14px 24px;
-border-radius:999px;
+margin-top:20px;
+padding:12px 24px;
 background:#111;
 color:white;
 text-decoration:none;
+border-radius:999px;
 font-size:14px;
-font-weight:600;
 }
 
 .fade{
-margin-top:16px;
-font-size:13px;
-opacity:.7;
-font-style:italic;
+opacity:.8;
+font-size:14px;
+margin-top:10px;
 }
 
 </style>
@@ -329,7 +308,7 @@ Buka Undangan
 
 <div class="topbar">
 <div>23.09</div>
-<div class="icons">📶 5G 🔋</div>
+<div class="icons-ios">📶 🔋</div>
 </div>
 
 <div class="header-content">
@@ -346,8 +325,6 @@ Buka Undangan
 </div>
 
 <div class="chat-area" id="chatArea">
-
-<!-- CHAT FLOW -->
 
 <div class="message sent">
 kamu belum tidur?
@@ -461,8 +438,11 @@ Sonosari, Kebonagung,<br>
 Pakisaji, Malang
 </p>
 
-<a href="https://maps.google.com" class="button" target="_blank">
+<a href="https://www.google.com/maps/place/Jl.+Penamas+No.32,+Sonosari,+Kebonagung,+Kec.+Pakisaji,+Kabupaten+Malang,+Jawa+Timur+65162/@-8.0346205,112.6073664,19.83z/data=!4m6!3m5!1s0x2e789d70062432e9:0xa2901c7369fabbbc!8m2!3d-8.0347719!4d112.6077009!16s%2Fg%2F11y3317l61?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
+class="button" target="_blank">
+
 Buka Maps
+
 </a>
 
 <div class="fade">
@@ -475,13 +455,13 @@ Buka Maps
 
 </div>
 
-<!-- AUDIO -->
+<!-- SOUND -->
 
-<audio id="chatSound" preload="auto">
-<source src="https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3" type="audio/mpeg">
+<audio id="chatSound">
+<source src="assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3" type="audio/mpeg">
 </audio>
 
-<audio id="music" preload="auto" loop playsinline>
+<audio id="music" loop>
 <source src="https://files.catbox.moe/0wfhli.mp3" type="audio/mpeg">
 </audio>
 
@@ -494,127 +474,70 @@ const phone = document.getElementById('phone');
 const chatArea = document.getElementById('chatArea');
 const messages = document.querySelectorAll('.message');
 const typings = document.querySelectorAll('.typing');
-
 const invite = document.getElementById('invite');
 
 const chatSound = document.getElementById('chatSound');
 const music = document.getElementById('music');
 
-openBtn.addEventListener('click', () => {
+openBtn.addEventListener('click', async ()=>{
 
-phone.style.display = 'block';
-
-setTimeout(()=>{
-opening.style.opacity='0';
-},100);
-
-setTimeout(()=>{
 opening.style.display='none';
-},800);
+phone.style.display='block';
 
-/* CHAT FLOW */
+/* START MUSIC DIAM-DIAM */
+music.volume = 0;
+
+try{
+await music.play();
+}catch(e){
+console.log(e);
+}
 
 let delay = 1000;
 
 messages.forEach((msg,index)=>{
 
-/* TYPING */
-
-if(index > 0){
-
-setTimeout(()=>{
-
-if(typings[index-1]){
-
-typings[index-1].style.display='block';
-
-chatArea.scrollTop = chatArea.scrollHeight;
-
-}
-
-},delay - 900);
-
-setTimeout(()=>{
-
-if(typings[index-1]){
-
-typings[index-1].style.display='none';
-
-}
-
-},delay - 200);
-
-}
-
-/* MESSAGE */
-
 setTimeout(()=>{
 
 msg.style.display='block';
 
-/* SOUND CHAT */
-
 chatSound.currentTime = 0;
-
-chatSound.play().catch(()=>{});
+chatSound.play();
 
 chatArea.scrollTop = chatArea.scrollHeight;
 
 },delay);
 
-delay += 1900;
+delay += 1800;
+
+if(typings[index]){
+
+setTimeout(()=>{
+typings[index].style.display='block';
+chatArea.scrollTop = chatArea.scrollHeight;
+},delay-900);
+
+setTimeout(()=>{
+typings[index].style.display='none';
+},delay);
+
+}
 
 });
 
-/* SHOW INVITATION */
-
-setTimeout(async ()=>{
+setTimeout(()=>{
 
 invite.style.display='block';
 
+/* NAIKKAN VOLUME PAS UNDANGAN MUNCUL */
+music.volume = 0.45;
+
 chatArea.scrollTop = chatArea.scrollHeight;
 
-/* MUSIC START AFTER INVITATION */
-
-music.volume = 0;
-
-try{
-
-await music.play();
-
-let vol = 0;
-
-const fadeMusic = setInterval(()=>{
-
-vol += 0.02;
-
-if(vol >= 0.45){
-
-vol = 0.45;
-
-clearInterval(fadeMusic);
-
-}
-
-music.volume = vol;
-
-},120);
-
-}catch(err){
-
-console.log(err);
-
-}
-
-},delay + 1200);
+},delay+1200);
 
 });
 
-window.addEventListener("beforeunload", () => {
-music.pause();
-music.currentTime = 0;
-});
-  
 </script>
 
 </body>
